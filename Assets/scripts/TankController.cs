@@ -5,7 +5,6 @@ public class TankController : MonoBehaviour {
 	
 	public enum goDirection{ up, down, left, right, stay};
 	public goDirection direction;
-	
 	public float speed;
 	public GameObject mBullet;
 	bool shouldGo = false;

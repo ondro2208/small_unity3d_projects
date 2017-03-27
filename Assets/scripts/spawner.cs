@@ -38,5 +38,6 @@ public class spawner : MonoBehaviour {
 		
 		Instantiate(prefab, transform.position, Quaternion.identity);
 		Instantiate(FX, transform.position, Quaternion.identity);
-	}
+
+    }
 }

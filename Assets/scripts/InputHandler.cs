@@ -28,7 +28,7 @@ public class InputHandler : MonoBehaviour {
 		}else
 			direction = TankController.goDirection.stay;
 		
-		if (Input.GetKeyDown(KeyCode.Space) /*&& !Bullet.isBulletAlive*/)
+		if (Input.GetKeyDown(KeyCode.L) /*&& !Bullet.isBulletAlive*/)
 		{
 			controller.Shoot();
 		}
