@@ -21,39 +21,40 @@ public class TankController : MonoBehaviour {
 	
 	void Update()
 	{
-		rigidbody.velocity = Vector3.zero; 
+        GetComponent<Rigidbody>().velocity = Vector3.zero; 
 			
 		if (direction == goDirection.right)
 		{
 			transform.rotation = initialRot;
 			transform.Rotate(new Vector3(0, 90, 0));
-			
-			rigidbody.AddForce(-transform.right * speed, ForceMode.Impulse);
+
+            GetComponent<Rigidbody>().AddForce(-transform.right * speed, ForceMode.Impulse);
 		}else if (direction == goDirection.left)
 		{
 			transform.rotation = initialRot;
 			transform.Rotate(new Vector3(0, -90, 0));
-			
-			
-			rigidbody.AddForce(-transform.right * speed, ForceMode.Impulse);
+
+
+            GetComponent<Rigidbody>().AddForce(-transform.right * speed, ForceMode.Impulse);
 		}else if (direction == goDirection.up)
 		{
 			transform.rotation = initialRot;
 			transform.Rotate(new Vector3(0, 0, 0));
-			
-			rigidbody.AddForce(-transform.right * speed, ForceMode.Impulse);
+
+            GetComponent<Rigidbody>().AddForce(-transform.right * speed, ForceMode.Impulse);
 		}else if (direction == goDirection.down)
 		{
 			transform.rotation = initialRot;
 			transform.Rotate(new Vector3(0, 180, 0));
-			
-			rigidbody.AddForce(-transform.right * speed, ForceMode.Impulse);
+
+            GetComponent<Rigidbody>().AddForce(-transform.right * speed, ForceMode.Impulse);
 		}
-			
-		// SHOOT
-		
-		
-		if (!animation.IsPlaying("shoot") && !animation.IsPlaying("idle"))// && animation["shoot"].time >= animation["shoot"].length)
+
+        // SHOOT
+
+        Animation animation = GetComponent<Animation>();
+
+        if (!animation.IsPlaying("shoot") && !animation.IsPlaying("idle"))// && animation["shoot"].time >= animation["shoot"].length)
 		{
 			animation.Play("idle");
 		}
@@ -61,7 +62,8 @@ public class TankController : MonoBehaviour {
 	
 	public void Shoot()
 	{
-		animation.Play("shoot");
+        Animation animation = GetComponent<Animation>();
+        animation.Play("shoot");
 		GameObject bullet = Instantiate(mBullet, transform.position + -transform.right * 7, this.transform.rotation) as GameObject;
 		(bullet.GetComponent<Bullet>() as Bullet).owner = this.gameObject;
 	}

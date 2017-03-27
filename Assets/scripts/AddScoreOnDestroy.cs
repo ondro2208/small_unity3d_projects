@@ -8,8 +8,8 @@ public class AddScoreOnDestroy : MonoBehaviour {
 	public GUIText mText;
 	// Use this for initialization
 	void Start () {
-	
-	}
+        mText.gameObject.SetActive(true);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -22,7 +22,8 @@ public class AddScoreOnDestroy : MonoBehaviour {
 			return;
 		
 		scrores++;
-		
-		mText.text = "scores: " + scrores;
-	}
+
+        mText.text = "scores: " + scrores;
+        mText.gameObject.SetActive(true);
+    }
 }

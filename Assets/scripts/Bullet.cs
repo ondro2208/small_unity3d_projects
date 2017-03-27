@@ -9,8 +9,9 @@ public class Bullet : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		//isBulletAlive = true;
-		rigidbody.AddForce(-transform.right * speed, ForceMode.Impulse);
+        //isBulletAlive = true;
+        GetComponent<Rigidbody>().AddForce(-transform.right * speed, ForceMode.Impulse);
+        
 	}
 	
 	// Update is called once per frame

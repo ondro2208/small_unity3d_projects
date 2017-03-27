@@ -28,9 +28,10 @@ public class destroyOnDamage : MonoBehaviour {
 		
 		if (isGameOver)
 		{
-			mText.gameObject.active = true;
-			
-		}
+			//mText.gameObject.active = true;
+            mText.gameObject.SetActive(true);
+
+        }
 		
 		DestroyObject(this.gameObject);
 	}

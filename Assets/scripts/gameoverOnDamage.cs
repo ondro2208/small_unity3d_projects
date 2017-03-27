@@ -16,10 +16,11 @@ public class gameoverOnDamage : MonoBehaviour {
 	}
 	
 	public void TakeDamage(GameObject shooter)
-	{	
-		//Debug.Log("TakeDamage " + gameObject.name);
-		mText.gameObject.active = true;
-		Time.timeScale = 0;
+	{
+        //Debug.Log("TakeDamage " + gameObject.name);
+        //mText.gameObject.active = true;
+        mText.gameObject.SetActive(true);
+        Time.timeScale = 0;
 		DestroyObject(this.gameObject);
 		DestroyObject(playerTank);
 	}
