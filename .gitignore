@@ -33,3 +33,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+#test
+/first_Data/
