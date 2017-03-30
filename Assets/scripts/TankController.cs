@@ -8,10 +8,13 @@ public class TankController : MonoBehaviour {
 	public float speed;
 	public GameObject mBullet;
 	bool shouldGo = false;
-	
-	
-	
-	Quaternion initialRot;
+
+    [HideInInspector]
+    public float shootingTime = 1;
+    public float _shootingTimer = 1;
+
+
+    Quaternion initialRot;
 	// Use this for initialization
 	void Start () 
 	{
@@ -57,13 +60,21 @@ public class TankController : MonoBehaviour {
 		{
 			animation.Play("idle");
 		}
-	}
+
+        _shootingTimer -= Time.deltaTime;
+    }
 	
 	public void Shoot()
 	{
-        Animation animation = GetComponent<Animation>();
-        animation.Play("shoot");
-		GameObject bullet = Instantiate(mBullet, transform.position + -transform.right * 7, this.transform.rotation) as GameObject;
-		(bullet.GetComponent<Bullet>() as Bullet).owner = this.gameObject;
+        if (_shootingTimer <= 0 /*gun is ready*/)
+        {
+            _shootingTimer = shootingTime;
+
+            Animation animation = GetComponent<Animation>();
+            animation.Play("shoot");
+            GameObject bullet = Instantiate(mBullet, transform.position + -transform.right * 7, this.transform.rotation) as GameObject;
+            (bullet.GetComponent<Bullet>() as Bullet).owner = this.gameObject;
+        }
+           
 	}
 }
