@@ -6,10 +6,10 @@ public class AiTank : MonoBehaviour {
 	[HideInInspector]
 	public TankController controller;
 	
-	public float directionSwitcherTime = 3;
+	public float directionSwitcherTime = 1;
 	public float shootingTime = 1;
 	
-	public float _directionSwitcherTimer = 3;
+	public float _directionSwitcherTimer = 1;
 	public float _shootingTimer = 1;
 	
 	// Use this for initialization
