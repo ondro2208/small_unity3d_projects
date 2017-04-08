@@ -3,8 +3,8 @@ using System.Collections;
 
 public class spawner : MonoBehaviour {
 	
-	public int count = 2; // start count of tanks
-	public float time = 8; // each 8 sec. spawn new tanks
+	public int count = 1; // start count of tanks
+	public float time = 100; // each 8 sec. spawn new tanks
 	float timer;
 	public bool onStart = true;
 	public GameObject prefab;

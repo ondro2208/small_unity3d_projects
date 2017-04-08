@@ -18,8 +18,12 @@ public class directionSwitcher : MonoBehaviour {
 		AiTank ai = transform.parent.GetComponent<AiTank>();
 		if (ai)
 		{
-			if (ai.controller)
-				ai.controller.direction += 1;
+            if (ai.controller)
+            {
+                if (!ai.isClever)
+                
+                    ai.controller.direction = (TankController.goDirection)Random.Range(0, 4);
+            }
 		}
 	}
 }

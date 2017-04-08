@@ -12,6 +12,7 @@ public class TankController : MonoBehaviour {
     [HideInInspector]
     public float shootingTime = 1;
     public float _shootingTimer = 1;
+    public Animation tankAnimation;
 
 
     Quaternion initialRot;
@@ -54,11 +55,11 @@ public class TankController : MonoBehaviour {
 
         // SHOOT
 
-        Animation animation = GetComponent<Animation>();
+        tankAnimation = GetComponent<Animation>();
 
-        if (!animation.IsPlaying("shoot") && !animation.IsPlaying("idle"))// && animation["shoot"].time >= animation["shoot"].length)
+        if (!tankAnimation.IsPlaying("shoot") && !tankAnimation.IsPlaying("idle"))// && animation["shoot"].time >= animation["shoot"].length)
 		{
-			animation.Play("idle");
+			tankAnimation.Play("idle");
 		}
 
         _shootingTimer -= Time.deltaTime;
