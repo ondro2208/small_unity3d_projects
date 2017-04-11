@@ -19,8 +19,12 @@ public class destroyOnDamage : MonoBehaviour {
 	}
 	
 	public void TakeDamage(GameObject shooter)
-	{	
-		if ((shooter.GetComponent<AiTank>() != null) && (GetComponent<AiTank>() != null))
+	{
+        bool isShooterEnemyTank = shooter.GetComponent<AiTank>() != null;
+        bool isThisObjectEnemyTank = GetComponent<AiTank>() != null;
+
+        // Enemy tanks should not damage each other
+        if (isShooterEnemyTank && isThisObjectEnemyTank)
 			return;
 		
 		if (ExplosionFX != null)
@@ -29,10 +33,16 @@ public class destroyOnDamage : MonoBehaviour {
 		if (isGameOver)
 		{
 			//mText.gameObject.active = true;
-            mText.gameObject.SetActive(true);
+            //mText.gameObject.SetActive(true);
 
         }
 		
 		DestroyObject(this.gameObject);
+
+        // Add score if the player successfully destroys an enemy tank.
+        if (isThisObjectEnemyTank)
+        {
+            ScoreManager.score += 1;
+        }
 	}
 }
