@@ -7,7 +7,6 @@ public class TankController : MonoBehaviour {
 	public goDirection direction;
 	public float speed;
 	public GameObject mBullet;
-	bool shouldGo = false;
 
     [HideInInspector]
     public float shootingTime = 1;
