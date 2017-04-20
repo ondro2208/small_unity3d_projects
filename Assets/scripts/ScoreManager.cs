@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour {
 
-    public static int score = 0;
-    GUIText text;
+    int Score = 0;
+    public GUIText Text;
 
 	// Use this for initialization
 	void Start () {
-        text = GetComponent <GUIText> ();
-        text.gameObject.SetActive(true);
+        Text.gameObject.SetActive(true);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        text.text = "Score: " + score;
 	}
+
+    public void UpdateScore(int ScoreDelta) {
+        Score += ScoreDelta;
+        Text.text = "Score: " + Score;
+    }
 }

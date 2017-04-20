@@ -1,8 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Assets.scripts.unattachedScripts;
+using Assets.scripts.unattachableScripts;
 using UnityEngine;
 
+/// <summary>
+/// Attach this to the players' base object to check the current state of the game 
+/// and display a message about the current state if necessary.
+/// </summary>
 public class GameStateChecker : MonoBehaviour {
 
     IGameStateEvaluator Tester;
@@ -34,6 +38,7 @@ public class GameStateChecker : MonoBehaviour {
 	}
 
     void OnDestroy() {
+        CurrentState = GameState.LOST;
         RenderMainText("Game over!");
     }
 
