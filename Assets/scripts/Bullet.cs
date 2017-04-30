@@ -1,14 +1,16 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class Bullet : MonoBehaviour {
 	
 	//public static bool isBulletAlive = false;
 	public float speed;
 	public GameObject owner;
-	
-	// Use this for initialization
-	void Start () {
+    
+
+    // Use this for initialization
+    void Start () {
         //isBulletAlive = true;
         GetComponent<Rigidbody>().AddForce(-transform.right * speed, ForceMode.Impulse);
         
@@ -23,7 +25,7 @@ public class Bullet : MonoBehaviour {
 	{
 		//isBulletAlive = false;
 		col.gameObject.SendMessage("TakeDamage", this.owner, SendMessageOptions.DontRequireReceiver);
-		
+        
 		DestroyObject(gameObject);
 	}
 }
