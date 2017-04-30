@@ -12,6 +12,7 @@ public class GameStateChecker : MonoBehaviour {
     IGameStateEvaluator Tester;
     GUIText Text;
     GameState CurrentState;
+	string NewLevelString = "tanks 1";
 
 	// Use this for initialization
 	void Start () {
@@ -32,9 +33,16 @@ public class GameStateChecker : MonoBehaviour {
                     break;
                 case GameState.WON:
                     RenderMainText("Congratulations!");
+					StartCoroutine(LoadLevelAfterDelay(5)); 
                     break;
             }
         }
+	}
+
+	IEnumerator LoadLevelAfterDelay(float delay)
+	{
+		yield return new WaitForSeconds(delay);
+		Application.LoadLevel(NewLevelString);
 	}
 
     void OnDestroy() {
