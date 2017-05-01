@@ -10,6 +10,11 @@ namespace Assets.scripts.unattachableScripts
 
         public GameState TestGameState(GameState CurrentState)
         {
+            GameObject PlayerBase = GameObject.FindGameObjectWithTag("PlayerBase");
+            if (PlayerBase == null)
+            {
+                return GameState.LOST;
+            }
             GameObject[] PlayerTanks = GameObject.FindGameObjectsWithTag("Player");
             bool ArePlayersAlive = false;
             foreach (GameObject PlayerTank in PlayerTanks)
